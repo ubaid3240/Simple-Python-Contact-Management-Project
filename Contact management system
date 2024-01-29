@@ -1,0 +1,116 @@
+
+#                                               A SIMPLE PROJECT BY UBADI3240
+
+
+
+#   DICTIONARY CREATED HERE!!!!
+dict_contct ={"name":"ubaid", "contact":"0300", "email":"ubaidwazir2003@gmail.com", "name2":"adaka"}
+print("this is the current dictionary", dict_contct)
+
+
+#   MAIN MENU STARTS FROM HERE!!!!!
+print("1: New Record")
+print("2: Update Record")
+print("3: Read Record")
+print("4: Delete Record")
+
+main_menu = input("Enter choice:")    # main_menu is a variable where users choice is stored
+main_menu = int(main_menu)
+
+
+#    CONDITIONING FOR MAIN MENU STARTS FROM HERE!!!!!
+
+if main_menu not in (1,2,3,4):
+    print("Wrong Choice")
+
+
+#    LOGIC FOR CHOICE 1             NEW RECORD
+elif main_menu == 1:
+
+    name = input("Enter Your Name:")
+    contct_no = input("Enter Your Contact Number: ")
+    email = input("Enter Your Email Address: ")
+
+    dict_contct["name"] = name
+    dict_contct["contact_no"] =contct_no
+    dict_contct["email"] = email
+
+    print("Recorded Added Successfully!")
+
+
+
+
+
+#    LOGIC FOR CHOICE 2             UPDATE RECORD
+elif main_menu == 2:
+    print("What do you want to update?")
+    print("1: Name Update")
+    print("2: Contact Update")
+    print("3: Email Update")
+    choice2 = input("Enter Your Choice:")
+    choice2 = int(choice2)
+
+
+    if choice2 not in (1,2,3):
+        print("Wrong Choice!")
+
+    elif choice2 == 1:
+        prv_name = input("Enter Your Previous Name:")
+        if dict_contct.get("name") == prv_name:
+            name = input("Enter Your New Name: ")
+            dict_contct["name"]=name;
+            print("Record Added Successfully!")
+
+        else:
+            print("Name Not Found!!!!")
+
+    elif choice2 == 2:
+        prv_cont = input("Enter Your Previous Contact: ")
+
+        if dict_contct.get("contact") == prv_cont:
+            contact_new = input("Enter New Contact")
+            dict_contct["contact"] = contact_new
+
+            print("Record Updated Successfully!")
+        else:
+            print("Contact NO Not Found!!!!")
+
+    elif choice2 == 3:
+        prv_email = input("Enter you previous email:")
+
+        if dict_contct.get("email") == prv_email:
+            new_email = input(" Enter Your New Email: ")
+            dict_contct["email"] = new_email
+
+            print("Record Updated Successfully!!!!!")
+
+        else:
+            print("Email Not Found!!!!")
+
+
+
+
+
+#    LOGIC FOR CHOICE 3             READ RECORD
+elif main_menu == 3:
+    print(f"Your name is {dict_contct["name"]}")
+    print(f"Your contact  no is: {dict_contct["contact"]}")
+    print(f"Your email is {dict_contct["email"]}")
+
+
+
+
+#    LOGIC FOR CHOICE 4             DELETE RECORD
+elif main_menu == 4:
+    del_accnt = input("Enter your name:")
+
+    if dict_contct["name"] == del_accnt:
+        dict_contct.clear()
+        print("Account Deleted Successfully!!!!")
+
+    else:
+        print("Account Not Found!!!!")
+
+
+
+print("updated dictionary:",dict_contct)
